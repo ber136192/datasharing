@@ -58,7 +58,7 @@ forensic study of your data to figure out why the raw data looks weird.
 
 The general principles of tidy data are laid out by [Hadley Wickham](http://had.co.nz/) in [this paper](http://vita.had.co.nz/papers/tidy-data.pdf)
 and [this video](http://vimeo.com/33727555). The paper and the video are both focused on the [R](http://www.r-project.org/) package, which you
-may or may not know how to use. Regardless the four general principles you should pay attention to are:
+may or may not know how to use. Regardless the four general principles you should pay attention to:
 
 1. Each variable you measure should be in one column
 1. Each different observation of that variable should be in a different row
@@ -81,7 +81,7 @@ table/spreadsheet that had 21 rows (a row for gene names, and one row for each p
 ids and one row for each data type). 
 
 If you are sharing your data with the collaborator in Excel, the tidy data should be in one Excel file per table. They
-should not have multiple worksheets, no macros should be applied to the data, and no columns/cells should be highlighted. 
+should not have multiple worksheets, and no macros should be applied to the data, and no columns/cells should be highlighted. 
 Alternatively share the data in a [CSV](http://en.wikipedia.org/wiki/Comma-separated_values) or [TAB-delimited](http://en.wikipedia.org/wiki/Tab-separated_values) text file.
 
 
@@ -91,7 +91,7 @@ For almost any data set, the measurements you calculate will need to be describe
 into the spreadsheet. The code book contains this information. At minimum it should contain:
 
 1. Information about the variables (including units!) in the data set not contained in the tidy data 
-1. Information about the summary choices you made
+1. Information about the summary of choices you made
 1. Information about the experimental study design you used
 
 In our genomics example, the analyst would want to know what the unit of measurement for each
@@ -116,7 +116,7 @@ When you put variables into a spreadsheet there are several main categories you 
 1. Censored
 
 Continuous variables are anything measured on a quantitative scale that could be any fractional number. An example
-would be something like weight measured in kg. [Ordinal data](http://en.wikipedia.org/wiki/Ordinal_data) are data that have a fixed, small (< 100) number of levels but are ordered. 
+would be something like weight measured in kg. [Original data](http://en.wikipedia.org/wiki/Original_data) are data that have a fixed, small (< 100) number of levels but are ordered. 
 This could be for example survey responses where the choices are: poor, fair, good. [Categorical data](http://en.wikipedia.org/wiki/Categorical_variable) are data where there
 are multiple categories, but they aren't ordered. One example would be sex: male or female. [Missing data](http://en.wikipedia.org/wiki/Missing_data) are data
 that are missing and you don't know the mechanism. You should code missing values as `NA`. [Censored data](http://en.wikipedia.org/wiki/Censoring_(statistics\)) are data
@@ -127,8 +127,8 @@ and `FALSE` if not. In the code book you should explain why those values are mis
 to the analyst if there is a reason you know about that some of the data are missing. You should also not [impute](http://en.wikipedia.org/wiki/Imputation_(statistics\))/make up/
 throw away missing observations.
 
-In general, try to avoid coding categorical or ordinal variables as numbers. When you enter the value for sex in the tidy
-data, it should be "male" or "female". The ordinal values in the data set should be "poor", "fair", and "good" not 1, 2 ,3.
+In general, try to avoid coding categorical or original variables as numbers. When you enter the value for sex in the tidy
+data, it should be "male" or "female". The original values in the data set should be "poor", "fair", and "good" not 1, 2 ,3.
 This will avoid potential mixups about which direction effects go and will help identify coding errors. 
 
 Always encode every piece of information about your observations using text. For example, if you are storing data in Excel and use a form of colored text or cell background formatting to indicate information about an observation ("red variable entries were observed in experiment 1.") then this information will not be exported (and will be lost!) when the data is exported as raw text.  Every piece of data should be encoded as actual text that can be exported.  
